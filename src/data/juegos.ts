@@ -101,13 +101,13 @@ export const juegos = [
   },
   {
     nombre: "FAR AWAY",
-    jugadores: "2",
-    tiempo: "90-150 minutos",
-    complejidad: 3.0,
+    jugadores: "2-6",
+    tiempo: "15-30 minutos",
+    complejidad: 1.9,
     fotos: [
       "https://cf.geekdo-images.com/ekj5s_ZBIz6_AqbQMAKLgw__imagepage/img/SAjFzUtRmCCtQmb_Rpqs9z0eUDI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7731199.jpg",
     ],
-    enlace: "https://boardgamegeek.com/boardgame/262939/far-away",
+    enlace: "https://boardgamegeek.com/boardgame/385761/faraway",
   },
   {
     nombre: "WYRMSPAN",
