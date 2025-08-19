@@ -1,80 +1,40 @@
 ---
-import { Image } from "astro:assets";
-import p1 from "@/images/1.jpeg";
-import p2 from "@/images/2.jpeg";
-import p3 from "@/images/3.jpeg";
-import p4 from "@/images/4.jpeg";
-import p5 from "@/images/5.jpeg";
-import p6 from "@/images/6.jpeg";
-const products = [
-  {
-    url: "#_",
-    title: "Dual-Port Bit Driver",
-    subtitle: "Cobalt blue CNC finish",
-    price: "$59",
-    image: p1,
-  },
-  {
-    url: "#_",
-    title: "Analog Audio Control Hub",
-    subtitle: "Soft matte with ring LEDs",
-    price: "$79",
-    image: p2,
-  },
-  {
-    url: "#_",
-    title: "Laser Range Unit",
-    subtitle: "Black anodized edge + sensor",
-    price: "$110",
-    image: p3,
-  },
-  {
-    url: "#_",
-    title: "Smart Object Desk Set",
-    subtitle: "Minimalist modular kit",
-    price: "$129",
-    image: p4,
-  },
-  {
-    url: "#_",
-    title: "Modular Synth Box",
-    subtitle: "Magnetic knobs, dual input",
-    price: "$149",
-    image: p5,
-  },
-  {
-    url: "#_",
-    title: "Compact Action Camera",
-    subtitle: "Transparent shell, neon ring",
-    price: "$189",
-    image: p6,
-  },
-];
+import { juegos } from "@/data/juegos";
 ---
 
 <section>
   <div
-    class="grid grid-cols-1 gap-6 lg:gap-y-24 md:grid-cols-2 lg:grid-cols-3 py-12"
+    class="grid grid-cols-1 gap-6 lg:gap-y-12 md:grid-cols-2 lg:grid-cols-3 py-12"
   >
     {
-      products.map((product) => (
+      juegos.map((juego) => (
         <figure class="relative ">
-          <a href={product.url} aria-hidden="true" class="absolute inset-0" />
-          <Image
-            width="800"
-            height="800"
-            alt={product.title}
-            src={product.image}
-            class="w-full rounded-3xl shadow aspect-12/9 object-cover object-center"
-          />
+          <a href={juego.enlace ?? "#"} target="_blank" rel="noopener noreferrer">
+            <img
+              width="800"
+              height="800"
+              alt={juego.nombre}
+              src={juego.fotos[0]}
+              class="w-full rounded-3xl shadow aspect-12/9 object-cover object-center"
+            />
+          </a>
           <div class="mt-2 flex justify-between px-6">
             <div>
-              <p class="mt-1 text-sm font-medium  text-base-900">
-                {product.subtitle}
+              <h3 class="font-medium text-base text-base-900">
+                {juego.nombre.charAt(0).toUpperCase() + juego.nombre.slice(1).toLowerCase()}
+              </h3>
+              <p class="mt-1 text-xs font-medium text-base-500 flex space-x-10">
+                <span>Duración: {juego.tiempo}</span>
               </p>
-              <h3 class="text-xs text-base-500">{product.title}</h3>
             </div>
-            <p class="text-base text-orange-600">{product.price}</p>
+            <p class="text-base text-gray-500" title="jugadores">
+              <span class="inline-block align-middle mr-1" aria-label="jugadores">
+                <svg xmlns="http://www.w3.org/2000/svg" class="inline h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 14c2.21 0 4 1.79 4 4v2H4v-2c0-2.21 1.79-4 4-4m8-6a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </span>
+              {juego.jugadores}
+            </p>
           </div>
         </figure>
       ))
