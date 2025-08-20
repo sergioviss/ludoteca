@@ -45,7 +45,7 @@ import { juegos } from "@/data/juegos";
                     
                     <div class="text-right">
                       <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
-                        {juego.complejidad}/5
+                        {juego.complejidad} / 5
                       </span>
                       {juego.enlace && (
                         <div class="text-blue-300 text-xs mt-1">
@@ -91,6 +91,24 @@ import { juegos } from "@/data/juegos";
     const isMobile = () => {
       return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     };
+    
+    // Configurar animaciones de carga en grupos de 3
+    gameCards.forEach((card, index) => {
+      // Inicializar el card como invisible
+      (card as HTMLElement).style.opacity = '0';
+      (card as HTMLElement).style.transform = 'translateY(50px)';
+      (card as HTMLElement).style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      
+      // Calcular el grupo (0, 1, 2, etc.) y el delay correspondiente
+      const group = Math.floor(index / 3);
+      const delayPerGroup = 150; // 150ms entre cada grupo
+      
+      // Animar cada grupo con delay escalonado
+      setTimeout(() => {
+        (card as HTMLElement).style.opacity = '1';
+        (card as HTMLElement).style.transform = 'translateY(0)';
+      }, group * delayPerGroup);
+    });
     
     gameCards.forEach((card) => {
       const image = card.querySelector('.game-image') as HTMLElement;
@@ -218,5 +236,12 @@ import { juegos } from "@/data/juegos";
   
   .mobile-overlay-active .game-image {
     transform: scale(1.3);
+  }
+  
+  /* Animación inicial de carga */
+  .game-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
 </style>

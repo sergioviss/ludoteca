@@ -72,12 +72,15 @@
     }
     
     // Continuous scroll-linked animation
-    scroll(
-      animate("#animated-icon", 
-        { rotate: [0, 360] },
-        { duration: 0 }
-      )
-    );
+    const animatedIcon = document.querySelector("#animated-icon");
+    if (animatedIcon) {
+      scroll(
+        animate("#animated-icon", 
+          { rotate: [0, 360] },
+          { duration: 0 }
+        )
+      );
+    }
   });
 </script>
 

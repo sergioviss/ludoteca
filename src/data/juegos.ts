@@ -20,16 +20,6 @@ export const juegos = [
     enlace: "https://boardgamegeek.com/boardgame/307002/regicide",
   },
   {
-    nombre: "TINDERBLOX",
-    jugadores: "2-6",
-    tiempo: "3-15 minutos",
-    complejidad: 1.0,
-    fotos: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmlr4L62pNUV46O4i0Qu4OarEFFb8_EWNxWd-ByHbqWHoutln4WROvutRI-ap5NR8eW-Y&usqp=CAU",
-    ],
-    enlace: "https://boardgamegeek.com/boardgame/295192/tinderblox",
-  },
-  {
     nombre: "THE WHITE CASTLE",
     jugadores: "1-4",
     tiempo: "60-80 minutos",
@@ -48,16 +38,6 @@ export const juegos = [
       "https://cf.geekdo-images.com/IAsae8JH545gjeCIqSBEwg__imagepage/img/xZj40zXmv82uR4QWFuqI0q5lBXs=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7754068.png",
     ],
     enlace: "https://boardgamegeek.com/boardgame/352515/trio",
-  },
-  {
-    nombre: "FRIEGAS TU",
-    jugadores: "2-8",
-    tiempo: "15-20 minutos",
-    complejidad: 1.2,
-    fotos: [
-      "https://kinuma.com/42839-large_default/friegas-tu-divertido-juego-de-cartas-para-2-8-jugadores.jpg",
-    ],
-    enlace: "https://boardgamegeek.com/boardgame/371544/friegas-tu",
   },
   {
     nombre: "YOKAI PAGODA",
@@ -380,6 +360,16 @@ export const juegos = [
     enlace: "https://boardgamegeek.com/boardgame/131357/coup",
   },
   {
+    nombre: "TINDERBLOX",
+    jugadores: "2-6",
+    tiempo: "3-15 minutos",
+    complejidad: 1.0,
+    fotos: [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmlr4L62pNUV46O4i0Qu4OarEFFb8_EWNxWd-ByHbqWHoutln4WROvutRI-ap5NR8eW-Y&usqp=CAU",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/295192/tinderblox",
+  },
+  {
     nombre: "POISONS",
     jugadores: "3-8",
     tiempo: "15 minutos",
@@ -469,6 +459,16 @@ export const juegos = [
       "https://www.eurojuegos.com.mx/wp-content/uploads/2021/10/Fantasy-Realms-Caja.jpg",
     ],
     enlace: "https://boardgamegeek.com/boardgame/223040/fantasy-realms",
+  },
+  {
+    nombre: "FRIEGAS TU",
+    jugadores: "2-8",
+    tiempo: "15-20 minutos",
+    complejidad: 1.2,
+    fotos: [
+      "https://kinuma.com/42839-large_default/friegas-tu-divertido-juego-de-cartas-para-2-8-jugadores.jpg",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/371544/friegas-tu",
   },
   {
     nombre: "OHANAMI",
