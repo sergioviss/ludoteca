@@ -1,0 +1,105 @@
+---
+// Motion.dev utility component for additional animations
+---
+
+
+
+<script>
+  import { animate, stagger, scroll, inView } from "motion";
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Stagger animation for list items
+    const staggerItems = document.querySelectorAll('.stagger-item');
+    if (staggerItems.length > 0) {
+      animate(
+        staggerItems,
+        { opacity: [0, 1], y: [20, 0] },
+        { 
+          delay: stagger(0.1),
+          duration: 0.6,
+          ease: "easeOut"
+        }
+      );
+    }
+    
+    // Scroll-triggered animation
+    const scrollTrigger = document.querySelector('.scroll-trigger');
+    if (scrollTrigger) {
+      inView(scrollTrigger, () => {
+        animate(scrollTrigger, 
+          { 
+            opacity: [0, 1], 
+            y: [30, 0],
+            scale: [0.9, 1]
+          },
+          { 
+            duration: 0.8,
+            ease: "backOut"
+          }
+        );
+      });
+    }
+    
+    // Interactive button with spring animation
+    const motionButton = document.querySelector('.motion-button');
+    if (motionButton) {
+      motionButton.addEventListener('click', () => {
+        animate(motionButton,
+          { 
+            scale: [1, 0.95, 1.05, 1],
+            rotate: [0, -2, 2, 0]
+          },
+          { 
+            duration: 0.4,
+            ease: "easeInOut"
+          }
+        );
+      });
+      
+      motionButton.addEventListener('mouseenter', () => {
+        animate(motionButton,
+          { scale: 1.05, y: -2 },
+          { duration: 0.2, ease: "backOut" }
+        );
+      });
+      
+      motionButton.addEventListener('mouseleave', () => {
+        animate(motionButton,
+          { scale: 1, y: 0 },
+          { duration: 0.2, ease: "backOut" }
+        );
+      });
+    }
+    
+    // Continuous scroll-linked animation
+    scroll(
+      animate("#animated-icon", 
+        { rotate: [0, 360] },
+        { duration: 0 }
+      )
+    );
+  });
+</script>
+
+<style>
+  .stagger-item {
+    padding: 12px 16px;
+    margin: 8px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+    opacity: 0;
+  }
+  
+  .motion-button {
+    transition: background-color 0.3s ease;
+  }
+  
+  .motion-button:hover {
+    background-color: #3b82f6;
+  }
+  
+  .motion-button:active {
+    background-color: #1d4ed8;
+  }
+</style>

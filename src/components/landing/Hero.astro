@@ -1,14 +1,29 @@
 ---
 import { juegos } from "@/data/juegos";
+import AnimatedIcon from "@/components/AnimatedIcon.astro";
 ---
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Gabarito:wght@615&display=swap');
+
+.gabarito-title {
+  font-family: "Gabarito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+</style>
+
 <header>
-  <div class="max-w-xl mx-auto text-center py-12">
-    <h1 class="text-base-800 font-medium md:text-4xl text-3xl">
-      Ludoteca de Sergio
-    </h1>
-    <p class="mt-2 text-base-500 text-balance text-sm">
-      Cantidad de juegos: {juegos.length}
-    </p>
+  <div class="max-w-xl mx-auto text-center py-6">
+    <div class="flex flex-col items-center space-y-2">
+      <AnimatedIcon />
+      <h1 class="text-base-800 font-medium md:text-4xl text-3xl gabarito-title">
+        Ludoteca de Sergio
+      </h1>
+      <p class="mt-2 text-base-500 text-balance text-sm">
+        Cantidad de juegos: {juegos.length}
+      </p>
+    </div>
   </div>
 </header>

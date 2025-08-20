@@ -7,25 +7,64 @@ import { juegos } from "@/data/juegos";
     class="grid grid-cols-1 gap-6 lg:gap-y-12 md:grid-cols-2 lg:grid-cols-3 py-12"
   >
     {
-      juegos.map((juego) => (
-        <figure class="relative ">
-          <a href={juego.enlace ?? "#"} target="_blank" rel="noopener noreferrer">
-            <img
-              width="800"
-              height="800"
-              alt={juego.nombre}
-              src={juego.fotos[0]}
-              class="w-full rounded-3xl shadow aspect-12/9 object-cover object-center"
-            />
-          </a>
-          <div class="mt-2 flex justify-between px-6">
+      juegos.map((juego, index) => (
+        <figure class="relative game-card" data-href={juego.enlace ?? "#"}>
+          <div class="game-link-wrapper">
+            <div class="relative overflow-hidden rounded-3xl">
+              <img
+                width="800"
+                height="800"
+                alt={juego.nombre}
+                src={juego.fotos[0]}
+                class="game-image w-full shadow aspect-12/9 object-cover object-center transition-all duration-300"
+              />
+              
+              {/* Overlay con información en la parte inferior */}
+              <div class="game-overlay absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent opacity-0 transition-all duration-300 p-4">
+                <div class="text-white">
+                  <h3 class="font-bold text-base sm:text-lg text-white mb-2">
+                    {juego.nombre.toUpperCase()}
+                  </h3>
+                  
+                  <div class="flex justify-between items-end text-sm">
+                    <div class="space-y-1">
+                      <div class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 14c2.21 0 4 1.79 4 4v2H4v-2c0-2.21 1.79-4 4-4m8-6a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <span class="text-xs">{juego.jugadores} jugadores</span>
+                      </div>
+                      
+                      <div class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-xs">{juego.tiempo}</span>
+                      </div>
+                    </div>
+                    
+                    <div class="text-right">
+                      <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                        {juego.complejidad}/5
+                      </span>
+                      {juego.enlace && (
+                        <div class="text-blue-300 text-xs mt-1">
+                          BGG →
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Información inferior */}
+          <div class="game-info mt-2 flex justify-between px-6 transition-all duration-300">
             <div>
               <h3 class="font-medium text-base text-base-900">
-                {juego.nombre.charAt(0).toUpperCase() + juego.nombre.slice(1).toLowerCase()}
+                {juego.nombre}
               </h3>
-              <p class="mt-1 text-xs font-medium text-base-500 flex space-x-10">
-                <span>Duración: {juego.tiempo}</span>
-              </p>
             </div>
             <p class="text-base text-gray-500" title="jugadores">
               <span class="inline-block align-middle mr-1" aria-label="jugadores">
@@ -41,3 +80,143 @@ import { juegos } from "@/data/juegos";
     }
   </div>
 </section>
+
+<script>
+  import { hover } from "motion";
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const gameCards = document.querySelectorAll('.game-card');
+    
+    // Función para detectar si es dispositivo móvil/touch
+    const isMobile = () => {
+      return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    };
+    
+    gameCards.forEach((card) => {
+      const image = card.querySelector('.game-image') as HTMLElement;
+      const overlay = card.querySelector('.game-overlay') as HTMLElement;
+      const info = card.querySelector('.game-info') as HTMLElement;
+      const linkWrapper = card.querySelector('.game-link-wrapper') as HTMLElement;
+      const href = (card as HTMLElement).dataset.href;
+      
+      if (image && overlay && info && linkWrapper) {
+        // Variable para controlar el estado del overlay en móvil
+        let overlayVisible = false;
+        
+        // Para desktop: usar hover
+        if (!isMobile()) {
+          hover(card as HTMLElement, (element) => {
+            // Al hacer hover - mostrar overlay y ocultar completamente info inferior
+            overlay.style.opacity = '1';
+            overlay.style.transform = 'translateY(0)';
+            info.style.opacity = '0';
+            info.style.visibility = 'hidden';
+            
+            // Animación de escala en la imagen
+            image.style.transform = 'scale(1.3)';
+            
+            // Return cleanup function para cuando se quite el hover
+            return () => {
+              overlay.style.opacity = '0';
+              overlay.style.transform = 'translateY(20px)';
+              info.style.opacity = '1';
+              info.style.visibility = 'visible';
+              image.style.transform = 'scale(1)';
+            };
+          });
+        }
+        
+        // Para móvil: manejar clicks
+        if (isMobile()) {
+          linkWrapper.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            if (!overlayVisible) {
+              // Primer click: mostrar overlay
+              overlay.style.opacity = '1';
+              overlay.style.transform = 'translateY(0)';
+              info.style.opacity = '0';
+              info.style.visibility = 'hidden';
+              image.style.transform = 'scale(1.3)';
+              overlayVisible = true;
+              
+              // Agregar clase para indicar que está activo
+              (card as HTMLElement).classList.add('mobile-overlay-active');
+            } else {
+              // Segundo click: ir al enlace
+              if (href && href !== '#') {
+                window.open(href, '_blank', 'noopener,noreferrer');
+              }
+            }
+          });
+          
+          // Cerrar overlay si se hace click fuera del card
+          document.addEventListener('click', (e) => {
+            if (!card.contains(e.target as Node) && overlayVisible) {
+              overlay.style.opacity = '0';
+              overlay.style.transform = 'translateY(20px)';
+              info.style.opacity = '1';
+              info.style.visibility = 'visible';
+              image.style.transform = 'scale(1)';
+              overlayVisible = false;
+              (card as HTMLElement).classList.remove('mobile-overlay-active');
+            }
+          });
+        } else {
+          // Para desktop: click directo al enlace
+          linkWrapper.addEventListener('click', (e) => {
+            if (href && href !== '#') {
+              window.open(href, '_blank', 'noopener,noreferrer');
+            }
+          });
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .game-overlay {
+    transform: translateY(20px);
+  }
+  
+  .game-link-wrapper {
+    cursor: pointer;
+  }
+  
+  /* Solo aplicar hover en desktop (no móvil) */
+  @media (hover: hover) and (pointer: fine) {
+    .game-card:hover .game-image {
+      transform: scale(1.3);
+    }
+    
+    .game-card:hover .game-overlay {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    
+    .game-card:hover .game-info {
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+  }
+  
+  .game-info {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  /* Estilo para cuando está activo en móvil */
+  .mobile-overlay-active .game-overlay {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  
+  .mobile-overlay-active .game-info {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  
+  .mobile-overlay-active .game-image {
+    transform: scale(1.3);
+  }
+</style>
