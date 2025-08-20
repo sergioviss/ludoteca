@@ -1,0 +1,169 @@
+---
+// Animated Chess Piece SVG Icon Component with svgEffect
+---
+
+<div class="animated-icon-container">
+  <svg 
+    id="chess-icon"
+    role="img"
+    width="80" 
+    height="80" 
+    viewBox="0 0 24 24" 
+    xmlns="http://www.w3.org/2000/svg"
+    class="animated-icon"
+  >
+    <title>Chess Piece</title>
+    <!-- Chess piece path -->
+    <path 
+      id="chess-path"
+      d="M12 0a3.85 3.85 0 0 0-3.875 3.846A3.84 3.84 0 0 0 9.73 6.969l-2.79 1.85c0 .622.144 1.114.434 1.649H9.83c-.014.245-.014.549-.014.925 0 .025.003.048.006.071-.064 1.353-.507 3.472-3.62 5.842-.816.625-1.423 1.495-1.806 2.533a.33.33 0 0 0-.045.084 8.124 8.124 0 0 0-.39 2.516c0 .1.216 1.561 8.038 1.561s8.038-1.46 8.038-1.561c0-2.227-.824-4.048-2.24-5.133-4.034-3.08-3.586-5.74-3.644-6.838h2.458c.29-.535.434-1.027.434-1.649l-2.79-1.836a3.86 3.86 0 0 0 1.604-3.123A3.873 3.873 0 0 0 13.445.275c-.004-.002-.01.004-.015.004A3.76 3.76 0 0 0 12 0Z" 
+      fill="currentColor"
+      stroke="currentColor" 
+      stroke-width="0.3"
+      class="chess-piece-path"
+    />
+  </svg>
+</div>
+
+<script>
+  import { svgEffect, motionValue, animate } from "motion";
+
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', () => {
+    const chessIcon = document.getElementById('chess-icon');
+    
+    if (chessIcon) {
+      // Create motion values for the drawing animation
+      const pathLength = motionValue(0);
+      const pathOffset = motionValue(1);
+      const opacity = motionValue(0);
+      const scale = motionValue(0.2);
+      const rotate = motionValue(-20);
+      const fillOpacity = motionValue(0);
+      
+      // Apply svgEffect to the chess piece
+      svgEffect("#chess-path", { 
+        pathLength: pathLength,
+        pathOffset: pathOffset,
+        opacity: opacity,
+        fillOpacity: fillOpacity
+      });
+      
+      svgEffect("#chess-icon", {
+        scale: scale,
+        rotate: rotate,
+        opacity: opacity
+      });
+      
+      // Animation sequence when page loads
+      const startAnimation = () => {
+        // 1. First show and scale the container with dramatic entrance
+        animate(opacity, 1, { duration: 0.4 });
+        animate(scale, [0.2, 1.3, 1], { duration: 1.5, ease: "backOut" });
+        animate(rotate, 0, { duration: 1.5, ease: "backOut" });
+        
+        // 2. Draw the chess piece outline with path drawing effect
+        setTimeout(() => {
+          animate(pathLength, 1, { 
+            duration: 3.0, 
+            ease: "easeInOut" 
+          });
+          animate(pathOffset, 0, { 
+            duration: 3.0, 
+            ease: "easeInOut" 
+          });
+        }, 500);
+        
+        // 3. Fill the chess piece gradually
+        setTimeout(() => {
+          animate(fillOpacity, 1, { 
+            duration: 1.2, 
+            ease: "easeOut" 
+          });
+        }, 2000);
+        
+        // 4. Add floating animation after initial sequence
+        setTimeout(() => {
+          const floatAnimation = animate(chessIcon,
+            { y: [0, -8, 0] },
+            { 
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }
+          );
+          
+          // Store animation reference for hover control
+          (chessIcon as any)._floatAnimation = floatAnimation;
+        }, 4000);
+      };
+      
+      // Start the animation sequence
+      startAnimation();
+      
+      // Hover interactions - clean and simple
+      let hoverAnimation = null;
+      
+      chessIcon.addEventListener('mouseenter', () => {
+        // Stop any existing hover animation
+        if (hoverAnimation) hoverAnimation.stop();
+        
+        hoverAnimation = animate(scale, 1.15, { 
+          duration: 0.2, 
+          ease: "easeOut" 
+        });
+      });
+      
+      chessIcon.addEventListener('mouseleave', () => {
+        // Stop any existing hover animation
+        if (hoverAnimation) hoverAnimation.stop();
+        
+        hoverAnimation = animate(scale, 1, { 
+          duration: 0.2, 
+          ease: "easeOut" 
+        });
+      });
+      
+      // Click interaction - redraw animation with dramatic effect
+      chessIcon.addEventListener('click', () => {
+        // Reset all values for dramatic redraw
+        pathLength.set(0);
+        pathOffset.set(1);
+        fillOpacity.set(0);
+        scale.set(0.2);
+        rotate.set(-20);
+        
+        // Restart animation
+        setTimeout(startAnimation, 100);
+      });
+    }
+  });
+</script>
+
+<style>
+  .animated-icon-container {
+    display: inline-block;
+    perspective: 1000px;
+  }
+  
+  .animated-icon {
+    cursor: pointer;
+    color: #1f2937; /* Dark gray for chess piece */
+    transition: all 0.3s ease;
+    transform-origin: center center;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+    background: transparent;
+  }
+  
+  .animated-icon:hover {
+    color: #111827; /* Darker gray on hover */
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+  }
+  
+  .chess-piece-path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill-rule: evenodd;
+    transition: opacity 0.3s ease;
+  }
+</style>
