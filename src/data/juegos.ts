@@ -391,6 +391,16 @@ export const juegos = [
     enlace: "https://boardgamegeek.com/boardgame/188834/secret-hitler",
   },
   {
+    nombre: "DUNE IMPERIUM UPRISING",
+    jugadores: "1-4",
+    tiempo: "60-120 minutos",
+    complejidad: 3.51,
+    fotos: [
+      "https://cf.geekdo-images.com/mk8BSChUnfBFP4pEk613KQ__imagepage/img/tiyODgmqHv8fQ6y7L97UDGdjeGQ=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7680371.jpg",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/397598/dune-imperium-uprising",
+  },
+  {
     nombre: "DRAGONWOOD",
     jugadores: "2-4",
     tiempo: "20-30 minutos",
