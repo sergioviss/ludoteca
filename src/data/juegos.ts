@@ -141,6 +141,16 @@ export const juegos = [
     enlace: "https://boardgamegeek.com/boardgame/63268/spot-it",
   },
   {
+    nombre: "TWO ROOMS AND A BOOM",
+    jugadores: "6-30",
+    tiempo: "7-20 minutos",
+    complejidad: 1.77,
+    fotos: [
+      "https://cf.geekdo-images.com/VkpANdyh5LDk3G3cbjLnUQ__imagepage/img/Y9aSHd5OnBor2ELLZmUS-TEb6fg=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1505726.jpg",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/134352/two-rooms-and-a-boom",
+  },
+  {
     nombre: "TACO CAT GOAT CHEESE PIZZA",
     jugadores: "2-8",
     tiempo: "10-15 minutos",
