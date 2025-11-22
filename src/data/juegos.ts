@@ -30,6 +30,16 @@ export const juegos = [
     enlace: "https://boardgamegeek.com/boardgame/371942/the-white-castle",
   },
   {
+    nombre: "AZUL",
+    jugadores: "1-4",
+    tiempo: "30-45 minutos",
+    complejidad: 1.77,
+    fotos: [
+      "https://cf.geekdo-images.com/kFgzuG2jp8xu19C4ULQprQ__imagepage/img/BSTYuYjsdJwKPrPOiIV_KQ05-c4=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3863715.jpg",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/230802/azul",
+  },
+  {
     nombre: "TRIO",
     jugadores: "3-6",
     tiempo: "15 minutos",
