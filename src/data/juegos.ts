@@ -73,11 +73,21 @@ export const juegos = [
     nombre: "EL SEÑOR DE LOS ANILLOS: LA COMUNIDAD DEL ANILLO",
     jugadores: "1-4",
     tiempo: "20 minutos",
-    complejidad: 1.14,
+    complejidad: 1.95,
     fotos: [
       "https://cf.geekdo-images.com/bIjQfcgWBPakpr9_U1V0PA__imagepage/img/YMfic6BxS99-wwJdh9Ues-ppjcI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8437790.png",
     ],
     enlace: "https://boardgamegeek.com/boardgame/429293/the-lord-of-the-rings-the-fellowship-of-the-ring-t",
+  },
+  {
+    nombre: "FLIP 7",
+    jugadores: "2-18",
+    tiempo: "20 minutos",
+    complejidad: 1.03,
+    fotos: [
+      "https://cf.geekdo-images.com/yGWtQ3MMXQRXtgLdTKBYJA__imagepage/img/cn5vDtN81nHWZk_m6J61okvMQ3c=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8805645.jpg",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/420087/flip-7",
   },
   {
     nombre: "CASTILLOS DE BORGOÑA",
