@@ -20,6 +20,77 @@ export const juegos = [
     enlace: "https://boardgamegeek.com/boardgame/307002/regicide",
   },
   {
+    nombre: "SALEM 1692",
+    jugadores: "4-12",
+    tiempo: "25-35 minutos",
+    complejidad: 2.05,
+    fotos: [
+      "https://cf.geekdo-images.com/V3GJAgk1eG7BWfS6GkAWwA__imagepage/img/rB1paX6pjsM0KWDB74QwtSbXt2M=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6524772.png",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/336986/flamecraft",
+  },
+  {
+    nombre: "FLAMECRAFT",
+    jugadores: "1-5",
+    tiempo: "60 minutos",
+    complejidad: 2.18,
+    fotos: [
+      "https://cf.geekdo-images.com/yOvOw7legkWr6icPu-dc7w__imagepage/img/gNfMjT-JQ50vPbTZQqB8XFcFBdY=/fit-in/900x600/filters:no_upscale():strip_icc()/pic7111742.jpg",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/175549/salem-1692",
+  },
+  {
+    nombre: "DODOS RIDING DINOS: FIRST RACE",
+    jugadores: "2-6",
+    tiempo: "15-20 minutos",
+    complejidad: 1.0,
+    fotos: [
+      "https://cf.geekdo-images.com/jU2J3NeZqyES1pCIx67IhQ__imagepage/img/kpMyhE6zvetS5B19H-Y_wK03jzc=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8321648.jpg",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/420975/dodos-riding-dinos-first-race",
+  },
+  {
+    nombre: "TSURO",
+    jugadores: "2-8",
+    tiempo: "15-20 minutos",
+    complejidad: 1.22,
+    fotos: [
+      "https://cf.geekdo-images.com/Ne0uW_Qw4tpzsZhmYDECfg__imagepage/img/fNsqVeKtPJzLKog77oyGVS9EY94=/fit-in/900x600/filters:no_upscale():strip_icc()/pic436973.jpg",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/16992/tsuro",
+  },
+  {
+    nombre: "MAGICAL ATHLETE",
+    jugadores: "2-6",
+    tiempo: "30 minutos",
+    complejidad: 1.14,
+    fotos: [
+      "https://cf.geekdo-images.com/CKCbjpYI2d1QfTOlCB8v9Q__imagepagezoom/img/MgdRdQiMw6e4FUpxGKh0szFiVAw=/fit-in/1200x900/filters:no_upscale():strip_icc()/pic9138145.jpg",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/454103/magical-athlete",
+  },
+  {
+    nombre: "EL SEÑOR DE LOS ANILLOS: LA COMUNIDAD DEL ANILLO",
+    jugadores: "1-4",
+    tiempo: "20 minutos",
+    complejidad: 1.14,
+    fotos: [
+      "https://cf.geekdo-images.com/bIjQfcgWBPakpr9_U1V0PA__imagepage/img/YMfic6BxS99-wwJdh9Ues-ppjcI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8437790.png",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/429293/the-lord-of-the-rings-the-fellowship-of-the-ring-t",
+  },
+  {
+    nombre: "CASTILLOS DE BORGOÑA",
+    jugadores: "2-4",
+    tiempo: "30-90 minutos",
+    complejidad: 2.97,
+    fotos: [
+      "https://cf.geekdo-images.com/chlk-J1bY8G_LGsGApeGvQ__imagepage/img/cDrPUrKUAcH6TqPVw1lrnF1Aijo=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2848831.jpg",
+    ],
+    enlace: "https://boardgamegeek.com/boardgame/84876/the-castles-of-burgundy",
+  },
+
+  {
     nombre: "THE WHITE CASTLE",
     jugadores: "1-4",
     tiempo: "60-80 minutos",
