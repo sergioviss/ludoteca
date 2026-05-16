@@ -20,7 +20,7 @@ export const juegos = [
     enlace: "https://boardgamegeek.com/boardgame/307002/regicide",
   },
   {
-    nombre: "SALEM 1692",
+    nombre: "FLAMECRAFT",
     jugadores: "4-12",
     tiempo: "25-35 minutos",
     complejidad: 2.05,
@@ -30,7 +30,7 @@ export const juegos = [
     enlace: "https://boardgamegeek.com/boardgame/336986/flamecraft",
   },
   {
-    nombre: "FLAMECRAFT",
+    nombre: "SALEM 1692",
     jugadores: "1-5",
     tiempo: "60 minutos",
     complejidad: 2.18,
