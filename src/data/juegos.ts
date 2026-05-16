@@ -75,7 +75,7 @@ export const juegos = [
     tiempo: "20 minutos",
     complejidad: 1.95,
     fotos: [
-      "https://cf.geekdo-images.com/bIjQfcgWBPakpr9_U1V0PA__imagepage/img/YMfic6BxS99-wwJdh9Ues-ppjcI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8437790.png",
+      "https://cf.geekdo-images.com/kPO-9RRvb8yTG_ZaPwsoAA__imagepage/img/dB47ehnZboGSEISQTkpz3Y4sWa0=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8851806.jpg",
     ],
     enlace: "https://boardgamegeek.com/boardgame/429293/the-lord-of-the-rings-the-fellowship-of-the-ring-t",
   },
